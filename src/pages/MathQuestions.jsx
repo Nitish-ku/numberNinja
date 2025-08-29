@@ -1,0 +1,245 @@
+import React, { useState, useEffect } from 'react';
+import ProgressTracker from '../components/ProgressTracker';
+import './MathQuestions.css';
+
+const questions = [
+  {
+    id: 'solution-1',
+    title: 'Question number 1',
+    question: 'Give the dimensions of a rectangle whose area is the sum of the areas of these two rectangles having measurements: 5 m × 10 m and 2 m × 7 m.',
+    answer: '16m, 4m',
+    solution: `
+      <h5>Solution for Question 1</h5>
+      area of rectangle : $length\times bredth$
+      area of the rectangle 1 : $5\times 10 = 50m^2$
+      area of the rectangle 2 : $2\times  7 = 14m^2$
+      sum of the area of the rectangle 1 and rectangle 2 : $50m^2+14m^2=64m^2$
+      so, the total area of the rectangle : $64m^2$
+      let length of the unknown rectangle be x
+      let bredth of the unknown rectangle be y
+      area of the unknown rectangle = $x\times y$
+      now, $x\times y=64$
+      To find the dimension of the unknown rectangle we can find various pairs of length and bredth such that $length\times bredth=64m^2$
+      Some possible dimenstion could be :
+      $1) L = 16m, W = 4m$ 
+      $2) L = 32m, W = 2m$
+    `
+  },
+  {
+    id: 'solution-2',
+    title: 'Question number 2',
+    question: 'The area of a rectangular garden that is 50 m long is 1000 sq m. Find the width of the garden.',
+    answer: '20m',
+    solution: `
+      <h5>Solution for Question 2</h5>
+      $Area of the garden(a) = length(l)\cdot bredth(b)$
+      $$a=l\times b$$
+      $$b =\frac{a}{l}$$
+      $$b =\frac{1000}{50}=20m$$
+    `
+  },
+  {
+    id: 'solution-3',
+    title: 'Question number 3',
+    question: 'The floor of a room is 5 m long and 4 m wide. A square carpet whose sides are 3 m in length is laid on the floor. Find the area that is not carpeted.',
+    answer: '11m^2',
+    solution: `
+      <h5>Solution for Question 3</h5>
+      We have a floor with dimensions 4m width and 5m length<br>
+      Area of the floor = $width\times length$<br>      Area of the floor = $4\times 5 = 20m^2$<br>      Side of the square carpet = 3m<br>      Area of the square carpet = $(side)^2$<br>      Area of the square carpet = $(3)^2=9m^2$<br>      Now, we will subtract the square carpet area from the floor’s area to get the area of the floor that is not carpeted.<br>      So, the area of the floor that is not carpeted = $(20-9)m^2 = 11m^2
+    `
+  },
+  {
+    id: 'solution-4',
+    title: 'Question number 4',
+    question: 'Four flower beds having sides 2 m long and 1 m wide are dug at the four corners of a garden that is 15 m long and 12 m wide. How mucharea is now available for laying down a lawn?',
+    answer: '172m^2',
+    solution: `
+      <h5>Solution for Question 4</h5>
+      Here, Length of garden = $$15 m$$
+      Width of garden = $$12 m$$
+      So, the area of the garden = $length\times width$
+      So, the area of the garden = $(15\times 12)m^2 = 180 m^2$
+      Now, the length of the flower bed = $2 m$
+      Width of flower bed = $1 m$
+      Area of the flower bed = $(2\times 1)m^2 = 2m^2$
+      Since, the area of four flower beds = $(2\times 4)m^2 = 8m^2$
+      Now the area is available for laying down a lawn = $180 \, m^2 - 8 \, m^2 = (180 – 8)m^2 = 172m^2$
+    `
+  },
+  {
+    id: 'solution-5',
+    title: 'Question number 5',
+    question: 'Shape A has an area of 18 square units and Shape B has an area of 20 square units. Shape A has a longer perimeter than Shape B. Draw twosuch shapes satisfying the given conditions.',
+    solution: `
+      <h5>Solution for Question 5</h5>
+      For Shape A:
+      Dimensions = $1 unit\times 18 units$
+      Area = $1\times 18 = 18\ square\ units$
+      Perimeter = $2\times (1 + 18) = 38\ units.$
+      For Shape B:
+      Dimensions = $4 units\times 5 units$
+      Area = $4\times 5 = 20\ square\ units$
+      Perimeter = $2\times (4 + 5) = 18 units.$
+      Thus, Shape A with a longer perimeter and Shape B with a smaller perimeter satisfy the given conditions.
+    `
+  },
+  {
+    id: 'solution-6',
+    title: 'Question number 6',
+    question: 'On apage in your book, draw a rectangular border that is 1 cm from the top and bottom and 1.5 cm from the left and right sides. What is the perimeter of the border?',
+    answer: '5cm',
+    solution: `
+      <h5>Solution for Question 6</h5>
+      Perimeter of the rectangular border = $2\[length + width]$
+      $=2\times [1 + 1.5]$
+      $= 2\times 2.5$
+      $= 5 cm$
+    `
+  },
+  {
+    id: 'solution-7',
+    title: 'Question number 7',
+    question: 'Draw a rectangle of size 12\u00d78. Draw another rectangle inside it without touching the outer rectangle that occupies exactly half the area.',
+    solution: `
+      <h5>Solution for Question 7</h5>
+      Area of given rectangle = $12\times 8 = 96\ units^2$<br>      and area of new rectangle = $\frac{1}{2}\times 96 = 48 units^2$<br>      \u2234 Possible sides of new rectangle are $12\times 4, 16\times 3, 8\times 6, 1\times 48$<br>      \u2234 Hence dimensions of the new rectangle fill in the rectangle of $12\times 8 units^2 = 8\ units\times 6\ units.$
+    `
+  },
+  {
+    id: 'solution-8',
+    title: 'Question number 8',
+    question: `
+      <p>
+        A square piece of paper is folded in half. The square is then
+        cut into two rectangles along the fold. Regardless of the size
+        of the square, one of the following statements is always true.
+        Which statement is true here?
+      </p>
+      <p>
+        a. The area of each rectangle is larger than the area of the
+        square.
+      </p>
+      <p>
+        b. Theperimeter of the square is greater than the perimeters
+        of both the rectangles added together.
+      </p>
+      <p>
+        c. The perimeters of both the rectangles added together is
+        always 11 2 times the perimeter of the square.
+      </p>
+      <p>
+        d. The area of the square is always three times as large as
+        the areas of both rectangles added together.
+      </p>
+    `,
+    answer: 'c',
+    solution: `
+      <h5>Solution for Question 8</h5>
+      The perimeters of both rectangles added together are always 1.5 times the perimeter of the square. This is because folding creates two rectangles with lengths equal to half the square. Option (C) is correct.
+    `
+  }
+];
+
+function MathQuestions() {
+  const [selectedQuestion, setSelectedQuestion] = useState(null);
+  const [userAnswer, setUserAnswer] = useState('');
+  const [feedback, setFeedback] = useState('');
+  const [attemptedCount, setAttemptedCount] = useState(0);
+  const [correctCount, setCorrectCount] = useState(0);
+  const [showSolution, setShowSolution] = useState(false);
+
+  useEffect(() => {
+    if (window.MathJax) {
+      window.MathJax.typeset();
+    }
+  }, [selectedQuestion, showSolution]);
+
+  const handleQuestionClick = (question) => {
+    setSelectedQuestion(question);
+    setUserAnswer('');
+    setFeedback('');
+    setShowSolution(false); // Hide solution when a new question is selected
+  };
+
+  const handleCheckAnswer = () => {
+    setAttemptedCount(prev => prev + 1);
+    if (selectedQuestion && userAnswer.toLowerCase() === selectedQuestion.answer.toLowerCase()) {
+      setCorrectCount(prev => prev + 1);
+      setFeedback('Correct!');
+    } else {
+      setFeedback('Incorrect. Try again.');
+    }
+  };
+
+  const handleShowSolution = () => {
+    setShowSolution(true);
+  };
+
+  return (
+    <div className="container mt-4">
+      <div className="row h-100">
+        <div className="col-md-5 question-panel">
+          <div className="list-group">
+            <div className="d-flex w-100 justify-content-between">
+              <b className="mb-1"># Figure it out (final exercise) </b>
+            </div>
+            {questions.map((q) => (
+              <a
+                href="#"
+                key={q.id}
+                className={`list-group-item list-group-item-action py-3 lh-sm question-link ${selectedQuestion && selectedQuestion.id === q.id ? 'active' : ''}`}
+                onClick={(e) => {
+                  e.preventDefault();
+                  handleQuestionClick(q);
+                }}
+              >
+                <div className="d-flex w-100 justify-content-between">
+                  <strong className="mb-1">{q.title}</strong>
+                </div>
+                <div className="col-10 mb-1 small" dangerouslySetInnerHTML={{ __html: q.question }}></div>
+              </a>
+            ))}
+          </div>
+        </div>
+
+        <div className="col-md-7">
+          <ProgressTracker attempted={attemptedCount} correct={correctCount} />
+          <div id="solution-area">
+            {selectedQuestion ? (
+              <>
+                {!showSolution && (
+                  <div className="mt-3">
+                    <input
+                      type="text"
+                      className="form-control mb-2"
+                      placeholder="Your answer"
+                      value={userAnswer}
+                      onChange={(e) => setUserAnswer(e.target.value)}
+                    />
+                    <div className="d-flex align-items-center">
+                    <button className="btn btn-primary me-2" onClick={handleCheckAnswer}>
+                      Check Answer
+                    </button>
+                    <button className="btn btn-info" onClick={handleShowSolution}>
+                      Show Solution
+                    </button>
+                  </div>
+                  {feedback && <p className="mt-2">{feedback}</p>}
+                  </div>
+                )}
+                {showSolution && (
+                  <div dangerouslySetInnerHTML={{ __html: selectedQuestion.solution }} />
+                )}
+              </>
+            ) : (
+              <p>Click on a question to see its solution here.</p>
+            )}
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+}
+
+export default MathQuestions;
