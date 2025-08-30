@@ -1,18 +1,23 @@
-import React from 'react';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import Home from './pages/Home';
-import Courses from './pages/Courses';
-import MathQuestions from './pages/MathQuestions';
-import Footer from './components/Footer';
+// src/App.jsx
+import React from "react";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import Home from "./pages/Home";
+import Courses from "./pages/Courses";
+import MathQuestions from "./pages/MathQuestions";
+import Footer from "./components/Footer";
 import { MathJaxContext } from "better-react-mathjax";
 
 function App() {
   const config = {
     tex: {
-      inlineMath: [['
-, '
-], ['\\(', '\\)']]
-    }
+      inlineMath: [
+        ["$", "$"],       // For single-dollar inline math like $x^2$
+        ["\\(", "\\)"],   // For LaTeX inline style: \(x^2\)
+      ],
+    },
+    svg: {
+      fontCache: "global",
+    },
   };
 
   return (
