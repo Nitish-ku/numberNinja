@@ -9,7 +9,7 @@ function Courses() {
           <div className="col-lg-6 col-md-8 mx-auto">
             <h1 className="fw-light">Courses from NUMBER NINJA</h1>
             <p className="lead text-body-secondary">
-              Dive into the world of Number Ninja — a collection of
+              Dive into the world of Number Ninja : a collection of
               beginner-friendly, power-packed courses designed to make math fun,
               clear, and confidence-boosting. Whether you're just starting out
               or brushing up on basics, there's something here to sharpen every
@@ -29,7 +29,7 @@ function Courses() {
           <div className="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
             <div className="col" id="godfather">
               <div className="card shadow-sm">
-                <img src="./images/p&a.jpeg" alt="perimeter and area" />
+                <img src="./src/images/p&a.jpeg" alt="perimeter and area" />
                 <div className="card-body">
                   <p className="card-text">
                     Perimeter means the distance around a shape. Area means the
