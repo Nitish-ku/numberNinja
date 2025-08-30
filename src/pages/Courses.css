@@ -1,9 +1,23 @@
-.btn-outline-secondary {
+/* Ensure the button itself has the correct background and border */
+/* Initial state for the button */
+.btn.btn-sm.btn-outline-secondary {
     background-color: palevioletred;
-    color: white;
+    border-color: palevioletred;
 }
 
-.btn-outline-secondary a {
-    color: white;
-    text-decoration: none;
+/* Text color and no underline for the link inside the button */
+.btn.btn-sm.btn-outline-secondary a {
+    color: white !important;
+    text-decoration: none !important;
+}
+
+/* Hover state for the button */
+.btn.btn-sm.btn-outline-secondary:hover {
+    background-color: grey; /* Grey background on hover */
+    border-color: grey;
+}
+
+/* Ensure text remains white on hover */
+.btn.btn-sm.btn-outline-secondary:hover a {
+    color: white !important;
 }

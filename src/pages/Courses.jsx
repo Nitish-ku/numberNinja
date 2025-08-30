@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import './Courses.css';
 
 function Courses() {
   return (
@@ -42,7 +43,7 @@ function Courses() {
                         type="button"
                         className="btn btn-sm btn-outline-secondary"
                       >
-                        <Link to="/math-questions" style={{ color: 'white', textDecoration: 'none' }}>Get Started</Link>
+                        <Link to="/math-questions">Get Started</Link>
                       </button>
                     </div>
                   </div>
