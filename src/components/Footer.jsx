@@ -1,11 +1,11 @@
-import React from 'react';
+import React from "react";
 
-function Footer() {
+export default function Footer() {
   return (
-    <footer className="app-footer">
-      <p className="text-center text-muted mb-0">© 2025 Number Ninja, Inc</p>
+    <footer className="mt-auto py-3 bg-light border-top">
+      <div className="container text-center">
+        <small>© {new Date().getFullYear()} Number Ninja</small>
+      </div>
     </footer>
   );
 }
-
-export default Footer;
