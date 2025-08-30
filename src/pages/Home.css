@@ -2,6 +2,7 @@
     display: flex;
     justify-content: space-between;
     margin-top: 30px;
+    flex-wrap: wrap; /* Allow items to wrap */
 }
 
 .my_pic_logo {
@@ -92,6 +93,76 @@
 
 #lypse{
     font-family: cursive;
+}
+
+/* Responsive adjustments for Home.css */
+@media (max-width: 768px) {
+    .hero_section {
+        flex-direction: column; /* Stack items vertically */
+        align-items: center; /* Center items when stacked */
+        text-align: center;
+    }
+
+    .my_pic_logo {
+        margin-top: 20px; /* Add space above the logo on smaller screens */
+        flex-direction: column; /* Stack image and text vertically */
+        align-items: center;
+    }
+
+    .user_id {
+        margin-top: 10px; /* Space between image and text */
+    }
+
+    .my_pic_logo img {
+        max-width: 60px; /* Slightly larger for better visibility on mobile */
+        max-height: 60px;
+    }
+
+    .logo_container p {
+        font-size: 24px; /* Adjust logo text size */
+    }
+
+    .body_section {
+        margin-top: 80px; /* Adjust top margin */
+    }
+
+    .paragraph p {
+        font-size: 20px; /* Adjust paragraph font size */
+        line-height: 1.4; /* Adjust line height for readability */
+    }
+
+    .paragraph span {
+        font-size: 5vw; /* Adjust animated text size */
+        -webkit-text-stroke: 0.2vw #383d52;
+    }
+
+    #pew {
+        font-size: 30px; /* Adjust font size */
+    }
+}
+
+@media (max-width: 480px) {
+    .my_pic_logo img {
+        max-width: 50px; /* Further adjust image size for smaller phones */
+        max-height: 50px;
+    }
+
+    .logo_container p {
+        font-size: 20px;
+    }
+
+    .paragraph p {
+        font-size: 18px;
+    }
+
+    .paragraph span {
+        font-size: 6vw; /* Further adjust animated text size */
+        -webkit-text-stroke: 0.15vw #383d52;
+    }
+
+    #pew {
+        font-size: 25px;
+    }
 }
 
 

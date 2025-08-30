@@ -1,0 +1,9 @@
+.btn-outline-secondary {
+    background-color: palevioletred;
+    color: white;
+}
+
+.btn-outline-secondary a {
+    color: white;
+    text-decoration: none;
+}

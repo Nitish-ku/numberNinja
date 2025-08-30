@@ -8,6 +8,21 @@ body {
     font-family: sans-serif;
     font-weight: 300;
     line-height: 1.4;
+    max-width: 1200px; /* Max width for larger screens */
+    margin: 0 auto; /* Center the content */
+    padding: 0 15px; /* Add some padding on the sides */
+}
+
+@media (max-width: 768px) {
+    body {
+        font-size: 16px; /* Adjust base font size for tablets and smaller */
+    }
+}
+
+@media (max-width: 480px) {
+    body {
+        font-size: 14px; /* Further adjust for mobile phones */
+    }
 }
 
 .app-footer {
