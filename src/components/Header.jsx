@@ -1,4 +1,5 @@
 import React from 'react';
+import myPicLogo from '/src/images/my_pic_logo.jpg';
 
 function Header() {
   return (
@@ -12,7 +13,7 @@ function Header() {
           <a href="https://x.com/pewcalypse">@pewcalypse</a>
         </div>
         <div className="user_image">
-          <img src="/src/images/my_pic_logo.jpg" alt="my pic logo" />
+          <img src={myPicLogo} alt="my pic logo" />
         </div>
       </div>
     </div>

@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import './Courses.css';
+import paImage from '/src/images/p&a.jpeg';
 
 function Courses() {
   return (
@@ -30,7 +31,7 @@ function Courses() {
           <div className="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
             <div className="col" id="godfather">
               <div className="card shadow-sm">
-                <img src="./src/images/p&a.jpeg" alt="perimeter and area" />
+                <img src={paImage} alt="perimeter and area" />
                 <div className="card-body">
                   <p className="card-text">
                     Perimeter means the distance around a shape. Area means the
