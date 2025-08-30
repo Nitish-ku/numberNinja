@@ -1,5 +1,6 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import ProgressTracker from '../components/ProgressTracker';
+import { MathJax } from "better-react-mathjax";
 import './MathQuestions.css';
 
 const questions = [
@@ -10,19 +11,19 @@ const questions = [
     answer: '16m, 4m',
     solution: `
       <h5>Solution for Question 1</h5>
-      area of rectangle : $length\times bredth$
-      area of the rectangle 1 : $5\times 10 = 50m^2$
-      area of the rectangle 2 : $2\times  7 = 14m^2$
-      sum of the area of the rectangle 1 and rectangle 2 : $50m^2+14m^2=64m^2$
-      so, the total area of the rectangle : $64m^2$
+      area of rectangle : [length\times bredth]
+      area of the rectangle 1 : [5\times 10 = 50m^2]
+      area of the rectangle 2 : [2\times  7 = 14m^2]
+      sum of the area of the rectangle 1 and rectangle 2 : [50m^2+14m^2=64m^2]
+      so, the total area of the rectangle : [64m^2]
       let length of the unknown rectangle be x
       let bredth of the unknown rectangle be y
-      area of the unknown rectangle = $x\times y$
-      now, $x\times y=64$
-      To find the dimension of the unknown rectangle we can find various pairs of length and bredth such that $length\times bredth=64m^2$
+      area of the unknown rectangle = [x\times y]
+      now, [x\times y=64]
+      To find the dimension of the unknown rectangle we can find various pairs of length and bredth such that [length\times bredth=64m^2]
       Some possible dimenstion could be :
-      $1) L = 16m, W = 4m$ 
-      $2) L = 32m, W = 2m$
+      [1) L = 16m, W = 4m] 
+      [2) L = 32m, W = 2m]
     `
   },
   {
@@ -32,10 +33,10 @@ const questions = [
     answer: '20m',
     solution: `
       <h5>Solution for Question 2</h5>
-      $Area of the garden(a) = length(l)\cdot bredth(b)$
-      $$a=l\times b$$
-      $$b =\frac{a}{l}$$
-      $$b =\frac{1000}{50}=20m$$
+      \[Area of the garden(a) = length(l)\times bredth(b)\]
+      \[a=l\times b\]
+      \[b =\frac{a}{l}\]
+      \[b =\frac{1000}{50}=20m\]
     `
   },
   {
@@ -46,7 +47,7 @@ const questions = [
     solution: `
       <h5>Solution for Question 3</h5>
       We have a floor with dimensions 4m width and 5m length<br>
-      Area of the floor = $width\times length$<br>      Area of the floor = $4\times 5 = 20m^2$<br>      Side of the square carpet = 3m<br>      Area of the square carpet = $(side)^2$<br>      Area of the square carpet = $(3)^2=9m^2$<br>      Now, we will subtract the square carpet area from the floor’s area to get the area of the floor that is not carpeted.<br>      So, the area of the floor that is not carpeted = $(20-9)m^2 = 11m^2
+      Area of the floor = \(width\times length\)<br>      Area of the floor = \(4\times 5 = 20m^2\)<br>      Side of the square carpet = \(3m\)<br>      Area of the square carpet = \((side)^2\)<br>      Area of the square carpet = \((3)^2=9m^2\)<br>      Now, we will subtract the square carpet area from the floor’s area to get the area of the floor that is not carpeted.<br>      So, the area of the floor that is not carpeted = \((20-9)m^2 = 11m^2\)
     `
   },
   {
@@ -58,13 +59,13 @@ const questions = [
       <h5>Solution for Question 4</h5>
       Here, Length of garden = $$15 m$$
       Width of garden = $$12 m$$
-      So, the area of the garden = $length\times width$
-      So, the area of the garden = $(15\times 12)m^2 = 180 m^2$
-      Now, the length of the flower bed = $2 m$
-      Width of flower bed = $1 m$
-      Area of the flower bed = $(2\times 1)m^2 = 2m^2$
-      Since, the area of four flower beds = $(2\times 4)m^2 = 8m^2$
-      Now the area is available for laying down a lawn = $180 \, m^2 - 8 \, m^2 = (180 – 8)m^2 = 172m^2$
+      So, the area of the garden = [length\times width]
+      So, the area of the garden = [15\times 12)m^2 = 180 m^2]
+      Now, the length of the flower bed = [2 m]
+      Width of flower bed = [1 m]
+      Area of the flower bed = [2\times 1)m^2 = 2m^2]
+      Since, the area of four flower beds = [2\times 4)m^2 = 8m^2]
+      Now the area is available for laying down a lawn = [180 \, m^2 - 8 \, m^2 = (180 – 8)m^2 = 172m^2]
     `
   },
   {
@@ -74,13 +75,13 @@ const questions = [
     solution: `
       <h5>Solution for Question 5</h5>
       For Shape A:
-      Dimensions = $1 unit\times 18 units$
-      Area = $1\times 18 = 18\ square\ units$
-      Perimeter = $2\times (1 + 18) = 38\ units.$
+      Dimensions = \[1 unit\times 18 units\]
+      Area = \[1\times 18 = 18\ square\ units\]
+      Perimeter = \[2\times (1 + 18) = 38\ units.\]
       For Shape B:
-      Dimensions = $4 units\times 5 units$
-      Area = $4\times 5 = 20\ square\ units$
-      Perimeter = $2\times (4 + 5) = 18 units.$
+      Dimensions = \[4 units\times 5 units\]
+      Area = \[4\times 5 = 20\ square\ units\]
+      Perimeter = \[2\times (4 + 5) = 18 units.\]
       Thus, Shape A with a longer perimeter and Shape B with a smaller perimeter satisfy the given conditions.
     `
   },
@@ -91,10 +92,10 @@ const questions = [
     answer: '5cm',
     solution: `
       <h5>Solution for Question 6</h5>
-      Perimeter of the rectangular border = $2\[length + width]$
-      $=2\times [1 + 1.5]$
-      $= 2\times 2.5$
-      $= 5 cm$
+      Perimeter of the rectangular border = \(2\[length + width]\)
+      \[=2\times [1 + 1.5]\]
+      \[= 2\times 2.5\]
+      \[= 5 cm\]
     `
   },
   {
@@ -103,7 +104,7 @@ const questions = [
     question: 'Draw a rectangle of size 12\u00d78. Draw another rectangle inside it without touching the outer rectangle that occupies exactly half the area.',
     solution: `
       <h5>Solution for Question 7</h5>
-      Area of given rectangle = $12\times 8 = 96\ units^2$<br>      and area of new rectangle = $\frac{1}{2}\times 96 = 48 units^2$<br>      \u2234 Possible sides of new rectangle are $12\times 4, 16\times 3, 8\times 6, 1\times 48$<br>      \u2234 Hence dimensions of the new rectangle fill in the rectangle of $12\times 8 units^2 = 8\ units\times 6\ units.$
+      Area of given rectangle = \(12\times 8 = 96\ units^2\)<br>      and area of new rectangle = \(\frac{1}{2}\times 96 = 48 units^2\)<br>      \(\therefore\) Possible sides of new rectangle are \(12\times 4, 16\times 3, 8\times 6, 1\times 48\)<br>      \(\therefore\) Hence dimensions of the new rectangle fill in the rectangle of \(12\times 8 units^2 = 8\ units\times 6\ units.\)
     `
   },
   {
@@ -148,12 +149,6 @@ function MathQuestions() {
   const [attemptedCount, setAttemptedCount] = useState(0);
   const [correctCount, setCorrectCount] = useState(0);
   const [showSolution, setShowSolution] = useState(false);
-
-  useEffect(() => {
-    if (window.MathJax) {
-      window.MathJax.typeset();
-    }
-  }, [selectedQuestion, showSolution]);
 
   const handleQuestionClick = (question) => {
     setSelectedQuestion(question);
@@ -229,7 +224,7 @@ function MathQuestions() {
                   </div>
                 )}
                 {showSolution && (
-                  <div dangerouslySetInnerHTML={{ __html: selectedQuestion.solution }} />
+                  <MathJax>{selectedQuestion.solution}</MathJax>
                 )}
               </>
             ) : (
