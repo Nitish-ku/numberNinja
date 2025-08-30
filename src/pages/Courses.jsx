@@ -42,7 +42,7 @@ function Courses() {
                         type="button"
                         className="btn btn-sm btn-outline-secondary"
                       >
-                        <Link to="/math-questions">Get Started</Link>
+                        <Link to="/math-questions" style={{ color: 'white', textDecoration: 'none' }}>Get Started</Link>
                       </button>
                     </div>
                   </div>
