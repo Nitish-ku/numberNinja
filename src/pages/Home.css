@@ -12,7 +12,11 @@
 }
 
 .user_id {
-    line-height: 1.2;
+    line-height: 1;
+}
+
+.user_id p {
+    margin: 0;
 }
 
 .my_pic_logo img {
