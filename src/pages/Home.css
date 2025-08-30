@@ -45,7 +45,7 @@
 }
 
 /* Main animated text */
-span {
+.paragraph span {
     position: relative;
     display: inline-block;
     font-size: 3vw;
@@ -58,7 +58,7 @@ span {
 }
 
 /* Animated effect */
-span::before {
+.paragraph span::before {
     content: attr(data-text);
     position: absolute;
     top: 0;
